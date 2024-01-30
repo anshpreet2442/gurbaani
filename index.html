@@ -1111,13 +1111,12 @@ body {
 
 
 
-
-   #icon {
+     #icon {
             position: fixed;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            cursor: pointer;
+            cursor: grab;
         }
         #popup-container {
             display: none;
@@ -1126,14 +1125,21 @@ body {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
         .popup2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            position: relative;
             background: #fff;
             padding: 20px;
             border-radius: 20px;
@@ -1159,10 +1165,12 @@ body {
             top: 10px;
             right: 10px;
             cursor: pointer;
+            color: red; /* Changed close button color to red */
+            font-size: 24px;
         }
-
-
-
+        #close:hover {
+            color: darkred;
+        }
 
 
     
