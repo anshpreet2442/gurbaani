@@ -190,7 +190,9 @@ cb=googleTranslateElementInit">
             <iframe id="popupIframe" class="popupIframe" src="" frameborder="0"></iframe>
         </div>
     </div>
-      <li><a href="https://etus.link/jagmagnoorhai">Jagmag noor hai.mp3</a></li>
+      <li><span class="back">
+        <span></span>
+      </span><a href="https://etus.link/jagmagnoorhai">Jagmag noor hai.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/bctJSAU9">Parsang Avtar Guru Hargobind Ji-Kav.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/xbnBkJgD">Shaheedi Chote Sahibjade.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/xU1JCT2W">Parsang Guru Amardas Ji-Kavishri Ja.mp3</a></li>
@@ -616,47 +618,92 @@ cb=googleTranslateElementInit">
     }
 /* Add this CSS to your existing styles */
 
-#playlist li {
-    position: relative; /* Add position relative to create space for absolute positioned pseudo-elements */
-    margin: 10px 0;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Hide overflow to prevent overflowing borders */
-}
+ * {
+      box-sizing: border-box;
+    }
 
-#playlist li:hover {
-    background-color: #e0e0e0;
-}
+    :root {
+      --bg: hsl(0 0% 6%);
+      --fg: hsl(0 0% 90%);
+    }
 
-#playlist li::before,
-#playlist li::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    border: 2px solid black; /* Set initial border properties */
-    transition: width 0.3s ease; /* Add transition effect */
-    pointer-events: none; /* Ensure pseudo-elements do not interfere with hover */
-}
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      align-content: center;
+      gap: 1rem;
+      background: var(--bg);
+    }
 
-#playlist li::before {
-    border-right: none; /* Remove right border initially */
-}
+    #playlist li {
+      position: relative;
+      margin: 10px 0;
+      background-color: var(--bg);
+      padding: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
 
-#playlist li::after {
-    border-left: none; /* Remove left border initially */
-}
+    #playlist li:hover {
+      background-color: var(--fg);
+    }
 
-#playlist li:hover::before,
-#playlist li:hover::after {
-    width: 100%; /* Expand width on hover */
-}
+    #playlist li .back {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    #playlist li .back > span {
+      left: calc(var(--x, 0) * 1px);
+      top: calc(var(--y, 0) * 1px);
+      width: 50%;
+      display: inline-block;
+      aspect-ratio: 1;
+      background: red;
+      transform: translate(-50%, -50%) scale(var(--active, 0));
+      transition: transform 0.25s;
+      background: var(--hover-bg);
+      position: absolute;
+      pointer-events: none;
+      overflow: hidden;
+      mix-blend-mode: difference;
+      border-radius: 50%;
+    }
+
+    #playlist li:is(:hover, :focus-visible) {
+      --active: 1.5;
+    }
+
+    #playlist li:active {
+      --active: 3;
+    }
+
+    #playlist li:active .back > span {
+      transition: transform 0.15s;
+    }
+
+    @supports (transition-timing-function: linear(0, 1)) {
+      #playlist li:is(:hover, :focus-visible) .back > span {
+        transition-duration: 0.5s;
+        transition-timing-function: linear(
+          0, 0.5007 7.21%, 0.7803 12.29%,
+          0.8883 14.93%, 0.9724 17.63%,
+          1.0343 20.44%, 1.0754 23.44%,
+          1.0898 25.22%, 1.0984 27.11%,
+          1.1014 29.15%, 1.0989 31.4%,
+          1.0854 35.23%, 1.0196 48.86%,
+          1.0043 54.06%, 0.9956 59.6%,
+          0.9925 68.11%, 1
+        );
+      }
+    }
 
 
 
