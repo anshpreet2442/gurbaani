@@ -614,8 +614,7 @@ cb=googleTranslateElementInit">
         width: 100%;
         margin: auto;
     }
-
-    #playlist li {
+   #playlist li {
         margin: 10px 0;
         background-color: #fff;
         padding: 15px;
@@ -623,6 +622,8 @@ cb=googleTranslateElementInit">
         transition: background-color 0.3s ease;
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
     }
 
     #playlist li:hover {
@@ -642,6 +643,34 @@ cb=googleTranslateElementInit">
         background-color: #ddd;
     }
 
+    /* Border Animation */
+    #playlist li::before,
+    #playlist li::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        border: 2px solid black;
+        transition: width 0.3s ease-out, height 0.3s ease-out;
+    }
+
+    #playlist li::before {
+        border-right: none;
+        border-bottom: none;
+    }
+
+    #playlist li::after {
+        border-left: none;
+        border-top: none;
+    }
+
+    #playlist li:hover::before,
+    #playlist li:hover::after {
+        width: 100%;
+        height: 100%;
+    }
     #audioPlayer {
         width: 100%;
         margin-top: 20px;
