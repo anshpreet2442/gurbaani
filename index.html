@@ -614,55 +614,32 @@ cb=googleTranslateElementInit">
         width: 100%;
         margin: auto;
     }
-#playlist li {
-    margin: 10px 0;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
+ #playlist li {
+        margin: 10px 0;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-#playlist li::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: transparent;
-    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-    border-radius: 50%;
-    z-index: 1;
-}
+    #playlist li:hover {
+        background-color: #e0e0e0;
+    }
 
-#playlist li:hover::before {
-    width: 300%;
-    height: 300%;
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-}
+    #playlist a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
 
-#playlist li:hover {
-    background-color: #e0e0e0;
-}
-
-#playlist a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-#playlist a:hover {
-    background-color: #ddd;
-}
-
+    #playlist a:hover {
+        background-color: #ddd;
+    }
 
 
 
