@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
 
 
 
@@ -18,6 +18,29 @@
       color: #fff; /* text color in the selected area */
     }
   </style>
+
+<style>
+        /* Set the video to fill the entire page */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Put the video behind other content */
+        }
+
+        /* Ensure other content appears above the video */
+        #content {
+            position: relative;
+            z-index: 1;
+            color: white; /* Set text color to white for contrast */
+        }
+    </style>
+
+
+    
  <style>
         body {
             font-family: 'Raleway', sans-serif; /* Apply Raleway font to the whole webpage */
@@ -59,8 +82,6 @@
 
 
 
-  
-<head>
 
 
 
@@ -89,9 +110,12 @@
     <title>Gurbani Playlist</title>
 </head>
 <body>
-
+ <video id="bg-video" autoplay muted loop>
+        <source src="https://etus.link/gurbaanibg" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 <h2>Gurbani Playlist</h2>
-
+ <div id="content">
 <!-- Create an audio player with controls -->
   <audio controls id="audioPlayer" oncontextmenu="return false;" nodownload>
       Your browser does not support the audio element.
@@ -734,3 +758,4 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   </script>
+</div>
