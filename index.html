@@ -622,30 +622,18 @@ cb=googleTranslateElementInit">
       box-sizing: border-box;
     }
 
-    :root {
-      --bg: hsl(0 0% 6%);
-      --fg: hsl(0 0% 90%);
-    }
-
-    body {
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      align-content: center;
-      gap: 1rem;
-      background: var(--bg);
-    }
+  
 
     #playlist li {
       position: relative;
       margin: 10px 0;
-      background-color: var(--bg);
+      background-color: red;
       padding: 15px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      overflow: auto;
     }
 
     #playlist li:hover {
@@ -656,7 +644,7 @@ cb=googleTranslateElementInit">
       position: absolute;
       inset: 0;
       pointer-events: none;
-      overflow: hidden;
+      overflow: auto;
       border-radius: 8px;
     }
 
@@ -672,7 +660,7 @@ cb=googleTranslateElementInit">
       background: var(--hover-bg);
       position: absolute;
       pointer-events: none;
-      overflow: hidden;
+      overflow: auto;
       mix-blend-mode: difference;
       border-radius: 50%;
     }
@@ -689,21 +677,7 @@ cb=googleTranslateElementInit">
       transition: transform 0.15s;
     }
 
-    @supports (transition-timing-function: linear(0, 1)) {
-      #playlist li:is(:hover, :focus-visible) .back > span {
-        transition-duration: 0.5s;
-        transition-timing-function: linear(
-          0, 0.5007 7.21%, 0.7803 12.29%,
-          0.8883 14.93%, 0.9724 17.63%,
-          1.0343 20.44%, 1.0754 23.44%,
-          1.0898 25.22%, 1.0984 27.11%,
-          1.1014 29.15%, 1.0989 31.4%,
-          1.0854 35.23%, 1.0196 48.86%,
-          1.0043 54.06%, 0.9956 59.6%,
-          0.9925 68.11%, 1
-        );
-      }
-    }
+  
 
 
 
