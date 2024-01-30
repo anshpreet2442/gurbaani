@@ -1185,20 +1185,18 @@ body {
 
 
 
-  <div id="icon">
-        <img src="https://etus.link/grbnpopup2img" alt="Icon" width="128" height="128">
+   <div id="icon" draggable="true"> <!-- Make the icon draggable -->
+        <img src="https://cdn-icons-png.flaticon.com/128/7110/7110348.png" alt="Icon" width="128" height="128">
     </div>
 
     <div id="popup-container">
         <div class="popup2">
-            <span id="close"><button type="button" class="btn-close" aria-label="Close"></button></span>
-            <iframe src="https://etus.link/gurbanipopup2" frameborder="0" width="100%" height="100%"></iframe>
+            <span id="close">&times;</span>
+            <iframe src="https://cdn-icons-png.flaticon.com/128/7110/7110348.png" frameborder="0" width="100%" height="100%"></iframe>
         </div>
     </div>
 
-
-
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             var icon = document.getElementById('icon');
             var popupContainer = document.getElementById('popup-container');
@@ -1210,6 +1208,19 @@ body {
 
             closeBtn.addEventListener('click', function() {
                 popupContainer.style.display = 'none';
+            });
+
+            // Make the icon draggable
+            icon.addEventListener('dragstart', function(event) {
+                event.dataTransfer.setData('text/plain', null);
+            });
+
+            // Move the icon with the mouse
+            document.addEventListener('mousemove', function(event) {
+                if (event.buttons === 1) { // Check if left mouse button is pressed
+                    icon.style.left = event.clientX - 64 + 'px'; // Adjust the offset based on the icon width
+                    icon.style.top = event.clientY - 64 + 'px'; // Adjust the offset based on the icon height
+                }
             });
         });
     </script>
@@ -1226,9 +1237,16 @@ body {
 
 
 
+    <script>
+    const UPDATE = ({target, x, y }) => {
+      const bounds = target.getBoundingClientRect()
+      target.style.setProperty('--x', x - bounds.left)
+      target.style.setProperty('--y', y - bounds.top)
+    }
 
-
-  
+    const BTNS = document.querySelectorAll('button')
+    BTNS.forEach(BTN => BTN.addEventListener('pointermove', UPDATE))
+  </script>
 
   <script>
     window.onload = function() {
