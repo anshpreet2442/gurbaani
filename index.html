@@ -614,7 +614,10 @@ cb=googleTranslateElementInit">
         width: 100%;
         margin: auto;
     }
+/* Add this CSS to your existing styles */
+
 #playlist li {
+    position: relative; /* Add position relative to create space for absolute positioned pseudo-elements */
     margin: 10px 0;
     background-color: #fff;
     padding: 15px;
@@ -622,24 +625,40 @@ cb=googleTranslateElementInit">
     transition: background-color 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Ensure proper positioning for pseudo-elements */
-    overflow: hidden; /* Hide overflow to contain animation within button */
+    overflow: hidden; /* Hide overflow to prevent overflowing borders */
 }
 
-#playlist li::before {
-    content: ''; /* Required for pseudo-elements */
+#playlist li:hover {
+    background-color: #e0e0e0;
+}
+
+#playlist li::before,
+#playlist li::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    border-left: 1px solid black; /* Initial border style */
-    transition: width 0.3s ease; /* Transition for border animation */
+    border: 2px solid black; /* Set initial border properties */
+    transition: width 0.3s ease; /* Add transition effect */
+    pointer-events: none; /* Ensure pseudo-elements do not interfere with hover */
 }
 
-#playlist li:hover::before {
-    width: 100%; /* Expand border width on hover */
+#playlist li::before {
+    border-right: none; /* Remove right border initially */
 }
+
+#playlist li::after {
+    border-left: none; /* Remove left border initially */
+}
+
+#playlist li:hover::before,
+#playlist li:hover::after {
+    width: 100%; /* Expand width on hover */
+}
+
+
 
 
 
