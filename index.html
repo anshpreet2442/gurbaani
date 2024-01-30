@@ -137,6 +137,14 @@
   <ul id="playlist">
          <li><a href="https://pixeldrain.com/api/file/gpjPfYuA">08 SUKHMANI SAHIB {PART-1}.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/XAKE5pkG">09 SUKHMANI SAHIB {PART-2}.mp3</a></li>
+      <button class="popup32" onclick="openPopup()">Daily GOLDEN TEMPLE</button>
+    
+    <div id="popupWrapper" class="popupWrapper">
+        <div id="popupContent" class="popupContent">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <iframe id="popupIframe" class="popupIframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
       <li><a href="https://pixeldrain.com/api/file/bctJSAU9">Parsang Avtar Guru Hargobind Ji-Kav.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/xbnBkJgD">Shaheedi Chote Sahibjade.mp3</a></li>
       <li><a href="https://pixeldrain.com/api/file/xU1JCT2W">Parsang Guru Amardas Ji-Kavishri Ja.mp3</a></li>
@@ -643,6 +651,70 @@
     #playlist li:hover a {
         animation: pulse 0.5s infinite;
     }
+
+
+
+
+
+
+
+
+.popupWrapper {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popupContent {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 720px;
+    height: 1080px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popupIframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </style>
 
 
@@ -712,6 +784,44 @@ document.addEventListener('DOMContentLoaded', function() {
     embeddedPage.src = '';
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function openPopup() {
+    var popupWrapper = document.getElementById('popupWrapper');
+    var popupIframe = document.getElementById('popupIframe');
+
+    popupIframe.src = 'https://etus.link/dailygoldentemple';
+
+    popupWrapper.style.display = 'block';
+}
+
+function closePopup() {
+    var popupWrapper = document.getElementById('popupWrapper');
+    var popupIframe = document.getElementById('popupIframe');
+
+    popupIframe.src = '';
+
+    popupWrapper.style.display = 'none';
+}
+
 </script>
 
 
