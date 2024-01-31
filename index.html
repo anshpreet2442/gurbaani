@@ -12,7 +12,7 @@
             );
         }
     </script>
- 
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10054/10054534.png">
     <script type="text/javascript"
             src=
 "https://translate.google.com/translate_a/element.js?
@@ -35,12 +35,6 @@ cb=googleTranslateElementInit">
     }
 
 
-
-
-
-
-
-    
   </style>
 
 <style>
@@ -61,9 +55,29 @@ cb=googleTranslateElementInit">
             z-index: 1;
             color: white; /* Set text color to white for contrast */
         }
+
+
+
+
+  
     </style>
 
-
+ <style>
+        #audioPlayer {
+            margin-bottom: 50px; /* Ensure space for the button */
+        }
+        #audioControlBtn {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
     
  <style>
         body {
@@ -87,18 +101,6 @@ cb=googleTranslateElementInit">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   <style>
     body {
       user-select: none; /* Disable text selection */
@@ -106,7 +108,7 @@ cb=googleTranslateElementInit">
   </style>
 
  
-   <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10054/10054534.png">
+
 
 
 
@@ -491,7 +493,24 @@ cb=googleTranslateElementInit">
 
     <!-- Add more songs as needed -->
 </ul>
+ <button id="audioControlBtn">Pause/Resume</button>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('audioPlayer');
+            var btn = document.getElementById('audioControlBtn');
+
+            btn.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    btn.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    btn.textContent = 'Play';
+                }
+            });
+        });
+    </script>
 <script>
     // Get references to the audio player and playlist
     var audioPlayer = document.getElementById('audioPlayer');
