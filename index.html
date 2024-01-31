@@ -495,12 +495,12 @@ cb=googleTranslateElementInit">
 </ul>
 <style>
 
- #audioProgress {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-        }
+#audioProgress {
+    width: 100%;
+    position: fixed;
+    top: 0; /* Change bottom to top */
+    left: 0;
+}
 
   </style>
 
@@ -523,6 +523,7 @@ cb=googleTranslateElementInit">
         document.addEventListener('DOMContentLoaded', function() {
             var audio = document.getElementById('audioPlayer');
             var btn = document.getElementById('audioControlBtn');
+           var progress = document.getElementById('audioProgress');
 
             btn.addEventListener('click', function() {
                 if (audio.paused) {
