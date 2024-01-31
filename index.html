@@ -127,9 +127,7 @@ cb=googleTranslateElementInit">
 
 
 
-  <audio controls id="audioPlayer" oncontextmenu="return false;" nodownload>
-      Your browser does not support the audio element.
-  </audio>
+ 
 
 
 
@@ -144,7 +142,9 @@ cb=googleTranslateElementInit">
 <h2>Gurbani Playlist</h2>
  <div id="content">
 <!-- Create an audio player with controls -->
-
+<audio controls id="audioPlayer" oncontextmenu="return false;" controlsList="nodownload">
+    Your browser does not support the audio element.
+</audio>
   <script>
       document.addEventListener('keydown', function(event) {
           var audio = document.getElementById('audioPlayer');
