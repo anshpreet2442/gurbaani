@@ -493,7 +493,31 @@ cb=googleTranslateElementInit">
 
     <!-- Add more songs as needed -->
 </ul>
+<style>
+
+ #audioProgress {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+   
  <button id="audioControlBtn">Pause/Resume</button>
+ <input type="range" id="audioProgress" min="0" max="100" value="0" step="1">
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -510,6 +534,19 @@ cb=googleTranslateElementInit">
                 }
             });
         });
+
+
+  audio.addEventListener('timeupdate', function() {
+                var progressValue = (audio.currentTime / audio.duration) * 100;
+                progress.value = progressValue;
+            });
+
+            progress.addEventListener('input', function() {
+                var seekTime = (audio.duration * (progress.value / 100));
+                audio.currentTime = seekTime;
+            });
+        });
+      
     </script>
 <script>
     // Get references to the audio player and playlist
